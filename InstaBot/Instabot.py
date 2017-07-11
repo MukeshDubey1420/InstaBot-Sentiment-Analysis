@@ -171,7 +171,7 @@ def like_a_post(insta_username):                              #     Defining the
 
 def get_like_list(insta_username):            # Defining the Function ............
     media_id = get_post_id(insta_username)  # Getting post id by passing the username .......
-    request_url = BASE_URL + 'media/%s/likes?access_token=%s' % (media_id, APP_ACCESS_TOKEN)
+    request_url = BASE_URL + 'media/%s/likes?access_token=%s' % (media_id, APP_ACCESS_TOKEN)    #    passing the end points and media id along with access token ..
     print colored('GET request url : %s', 'blue') % (request_url)
     like_list = requests.get(request_url).json()
 
@@ -191,32 +191,55 @@ def get_like_list(insta_username):            # Defining the Function ..........
         print colored('Status code other than 200 recieved', 'red')
 
 
+#        Function declaration to Get the lists of comments on  the recent post of a user.........
+
+
+def get_comment_list(insta_username):  # Defining the Function ............
+    media_id = get_post_id(insta_username)  # Getting post id by passing the username .......
+    request_url = BASE_URL + 'media/%s/comments?access_token=%s' % (media_id, APP_ACCESS_TOKEN)   #    passing the end points and media id along with access token ..
+    print colored('GET request url : %s', 'blue') % (request_url)
+    comment_list = requests.get(request_url).json()
+
+    if comment_list['meta']['code'] == 200:  # checking the status code .....
+        if len(comment_list['data']):
+            position = 1
+            print colored("List of people who commented Your Recent post", 'blue')
+            for users in comment_list['data']:
+                if users['username'] != None:
+                    print position, colored(users['username'], 'green')
+                    position = position + 1
+                else:
+                    print colored('No one had commented on Your post!', 'red')
+        else:
+            print colored("User Does not have any post", 'red')
+    else:
+        print colored('Status code other than 200 recieved', 'red')
+
 
 #                  Function declaration to make a comment on the recent post of the user................
 
 
-def post_a_comment(insta_username):
-    media_id = get_post_id(insta_username)
-    comment_text = raw_input("Your comment: ")
+def post_a_comment(insta_username):         #     Defining the function ......
+    media_id = get_post_id(insta_username)    #   Getting media id by calling the get post id function....
+    comment_text = raw_input(colored("Please Write Your comment: ",'blue'))
     payload = {"access_token": APP_ACCESS_TOKEN, "text" : comment_text}
     request_url = (BASE_URL + 'media/%s/comments') % (media_id)
-    print 'POST request url : %s' % (request_url)
+    print colored('POST request url : %s','blue') % (request_url)
 
-    make_comment = requests.post(request_url, payload).json()
-
-    if make_comment['meta']['code'] == 200:
-        print "Successfully added a new comment!"
+    post_comment = requests.post(request_url, payload).json()    #   Fetching json data ...
+    if post_comment['meta']['code'] == 200:             #      checking status code ......
+        print colored("Successfully added a new comment!",'green')
     else:
-        print "Unable to add comment. Try again!"
+        print colored("Unable to add comment.Please Try again!!",'red')
 
 
 #                      Function declaration to make delete negative comments from the recent post.........................
 
 
-def delete_negative_comment(insta_username):
-    media_id = get_post_id(insta_username)
+def delete_negative_comment(insta_username):   #     Defining the function ......
+    media_id = get_post_id(insta_username)     #   Getting media id by calling the get post id function....
     request_url = (BASE_URL + 'media/%s/comments/?access_token=%s') % (media_id, APP_ACCESS_TOKEN)
-    print 'GET request url : %s' % (request_url)
+    print colored('GET request url : %s','blue') % (request_url)
     comment_info = requests.get(request_url).json()
 
     if comment_info['meta']['code'] == 200:
@@ -227,21 +250,21 @@ def delete_negative_comment(insta_username):
                 comment_text = comment_info['data'][x]['text']
                 blob = TextBlob(comment_text, analyzer=NaiveBayesAnalyzer())
                 if (blob.sentiment.p_neg > blob.sentiment.p_pos):
-                    print 'Negative comment : %s' % (comment_text)
+                    print colored('Negative comment : %s','green') % (comment_text)
                     delete_url = (BASE_URL + 'media/%s/comments/%s/?access_token=%s') % (media_id, comment_id, APP_ACCESS_TOKEN)
-                    print 'DELETE request url : %s' % (delete_url)
+                    print colored('DELETE request url : %s','blue') % (delete_url)
                     delete_info = requests.delete(delete_url).json()
 
                     if delete_info['meta']['code'] == 200:
-                        print 'Comment successfully deleted!\n'
+                        print colored('The Negative Comment From the Post has successfully deleted!\n','green')
                     else:
-                        print 'Unable to delete comment!'
+                        print colored('Unable to delete comment!!','red')
                 else:
-                    print 'Positive comment : %s\n' % (comment_text)
+                    print colored('The Comment is Positive comment : %s\n','green') % (comment_text)
         else:
-            print 'There are no existing comments on the post!'
+            print colored('There are no existing comments on the post!','red')
     else:
-        print 'Status code other than 200 received!'
+        print colored('Status code other than 200 received!','red')
 
 
 #                   Defining the Main function under which above sub-function works by calling ...........
