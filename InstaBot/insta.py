@@ -92,7 +92,7 @@ def get_own_post():
             image_name = own_media['data'][0]['id'] + '.jpeg'
             image_url = own_media['data'][0]['images']['standard_resolution']['url']
             urllib.urlretrieve(image_url, image_name)    # using urllib library to download the post by passing link of recent media to it ..
-            print colored('Your image From Your Recent Posts has been downloaded!','green')
+            print colored('Your image From Your Recent Posts has been downloaded Successfully!','green')
         else:
             print colored('Post does not exist!','red')
     else:
@@ -129,22 +129,22 @@ def get_user_post(insta_username):   # Defining function to get recent posts of 
 
 
 def get_post_id(insta_username):
-    user_id = get_user_id(insta_username)
-    if user_id == None:
-        print 'User does not exist!'
+    user_id = get_user_id(insta_username)               #         Capturing the user id ......
+    if user_id == None:                                 #         checking in case post exists or not .......
+        print colored('InstaUser of this Username does not exist!','red')
         exit()
     request_url = (BASE_URL + 'users/%s/media/recent/?access_token=%s') % (user_id, APP_ACCESS_TOKEN)
-    print 'GET request url : %s' % (request_url)
-    user_media = requests.get(request_url).json()
+    print colored('GET request url : %s','blue') % (request_url)
+    user_media = requests.get(request_url).json()            #      Fetching json data ........
 
-    if user_media['meta']['code'] == 200:
+    if user_media['meta']['code'] == 200:                    #    checking the status code .......
         if len(user_media['data']):
             return user_media['data'][0]['id']
         else:
-            print 'There is no recent post of the user!'
+            print colored('There is no recent post of the user!','red')
             exit()
     else:
-        print 'Status code other than 200 received!'
+        print colored('Status code other than 200 received!','red')
         exit()
 
 
@@ -153,16 +153,42 @@ def get_post_id(insta_username):
 
 
 
-def like_a_post(insta_username):
-    media_id = get_post_id(insta_username)
+def like_a_post(insta_username):                              #     Defining the Function ............
+    media_id = get_post_id(insta_username)                     # Getting post id by passing the username .......
     request_url = (BASE_URL + 'media/%s/likes') % (media_id)
-    payload = {"access_token": APP_ACCESS_TOKEN}
-    print 'POST request url : %s' % (request_url)
+    payload = {"access_token": APP_ACCESS_TOKEN}                 #    passing the payloads ........
+    print colored('POST request url : %s','blue') % (request_url)         #    post request method  to posting the like ......
     post_a_like = requests.post(request_url, payload).json()
-    if post_a_like['meta']['code'] == 200:
-        print 'Like was successful!'
+    if post_a_like['meta']['code'] == 200:                        #    checking the status code .....
+        print colored('Like was successful!','green')
     else:
-        print 'Your like was unsuccessful. Try again!'
+        print colored('Your like was unsuccessful.Please Try again!','red')
+
+
+
+#                 Function declaration to Get the like lists on the recent post of a user.........
+
+
+def get_like_list(insta_username):            # Defining the Function ............
+    media_id = get_post_id(insta_username)  # Getting post id by passing the username .......
+    request_url = BASE_URL + 'media/%s/likes?access_token=%s' % (media_id, APP_ACCESS_TOKEN)
+    print colored('GET request url : %s', 'blue') % (request_url)
+    like_list = requests.get(request_url).json()
+
+    if like_list['meta']['code'] == 200:  # checking the status code .....
+        if len(like_list['data']):
+            position = 1
+            print colored("List of people who Liked Your Recent post", 'blue')
+            for users in like_list['data']:
+                if users['username']!= None:
+                    print position, colored(users['username'],'green')
+                    position = position + 1
+                else:
+                    print colored('No one had liked Your post!', 'red')
+        else:
+            print colored("User Does not have any post",'red')
+    else:
+        print colored('Status code other than 200 recieved', 'red')
 
 
 
