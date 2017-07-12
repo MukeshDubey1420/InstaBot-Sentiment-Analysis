@@ -12,11 +12,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="insta.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="insta.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/insta.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6741">
-              <caret line="324" column="11" lean-forward="false" selection-start-line="324" selection-start-column="11" selection-end-line="324" selection-end-column="11" />
+            <state relative-caret-position="644">
+              <caret line="322" column="11" lean-forward="false" selection-start-line="322" selection-start-column="11" selection-end-line="322" selection-end-column="11" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -24,14 +24,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Instabot.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Instabot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Instabot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="287" column="0" lean-forward="true" selection-start-line="287" selection-start-column="0" selection-end-line="287" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#67#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="63">
+              <caret line="3" column="16" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="322" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -49,8 +47,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/sample.py" />
-        <option value="$PROJECT_DIR$/insta.py" />
+        <option value="$PROJECT_DIR$/sandbox_users.py" />
         <option value="$PROJECT_DIR$/Instabot.py" />
+        <option value="$PROJECT_DIR$/insta.py" />
       </list>
     </option>
   </component>
@@ -61,7 +60,7 @@
     <option name="height" value="876" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -74,24 +73,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="InstaBot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="InstaBot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../spychat" />
@@ -234,13 +216,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11246786" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23648648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.69489247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -267,6 +248,24 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/insta.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Instabot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3486">
+          <caret line="166" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="324" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insta.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6741">
           <caret line="324" column="11" lean-forward="false" selection-start-line="324" selection-start-column="11" selection-end-line="324" selection-end-column="11" />
           <folding>
@@ -279,9 +278,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6468">
           <caret line="311" column="35" lean-forward="true" selection-start-line="311" selection-start-column="35" selection-end-line="311" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -299,9 +296,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4935">
           <caret line="235" column="12" lean-forward="false" selection-start-line="235" selection-start-column="12" selection-end-line="235" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -489,20 +484,26 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sample.py" />
-    <entry file="file://$PROJECT_DIR$/insta.py">
+    <entry file="file://$PROJECT_DIR$/sandbox_users.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6741">
-          <caret line="324" column="11" lean-forward="false" selection-start-line="324" selection-start-column="11" selection-end-line="324" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="112" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Instabot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="287" column="0" lean-forward="true" selection-start-line="287" selection-start-column="0" selection-end-line="287" selection-end-column="0" />
+        <state relative-caret-position="63">
+          <caret line="3" column="16" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="322" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insta.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="322" column="11" lean-forward="false" selection-start-line="322" selection-start-column="11" selection-end-line="322" selection-end-column="11" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
