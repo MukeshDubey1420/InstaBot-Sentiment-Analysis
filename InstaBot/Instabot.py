@@ -203,15 +203,15 @@ def get_comment_list(insta_username):  # Defining the Function ............
     if comment_list['meta']['code'] == 200:  # checking the status code .....
         if len(comment_list['data']):
             position = 1
-            print colored("List of people who commented Your Recent post", 'blue')
+            print colored("List of people who commented on Your Recent post", 'blue')
             for users in comment_list['data']:
-                if users['username'] != None:
+                if users['data']['from']['username'] != None:
                     print position, colored(users['username'], 'green')
                     position = position + 1
                 else:
                     print colored('No one had commented on Your post!', 'red')
         else:
-            print colored("User Does not have any post", 'red')
+            print colored("There is no Comments on User's Recent post", 'red')
     else:
         print colored('Status code other than 200 recieved', 'red')
 
@@ -249,6 +249,7 @@ def delete_negative_comment(insta_username):   #     Defining the function .....
                 comment_id = comment_info['data'][x]['id']
                 comment_text = comment_info['data'][x]['text']
                 blob = TextBlob(comment_text, analyzer=NaiveBayesAnalyzer())
+                print blob.sentiment
                 if (blob.sentiment.p_neg > blob.sentiment.p_pos):
                     print colored('Negative comment : %s','green') % (comment_text)
                     delete_url = (BASE_URL + 'media/%s/comments/%s/?access_token=%s') % (media_id, comment_id, APP_ACCESS_TOKEN)
@@ -258,7 +259,7 @@ def delete_negative_comment(insta_username):   #     Defining the function .....
                     if delete_info['meta']['code'] == 200:
                         print colored('The Negative Comment From the Post has successfully deleted!\n','green')
                     else:
-                        print colored('Unable to delete comment!!','red')
+                        print colored('Check Network issues , Unable to delete the comment!!','red')
                 else:
                     print colored('The Comment is Positive comment : %s\n','green') % (comment_text)
         else:
@@ -274,16 +275,16 @@ def start_bot():
     while True:
         print colored('Hey! We Welcomes U to instaBot!','green')
         print colored('Select your menu options:','blue')
-        print colored("Select Option:'A'  To Get your own details\n",'green')
-        print colored("Select Option:'B'  To Get details of a user by username\n",'green')
-        print colored("Select Option:'C'  To Get your own recent post\n",'green')
-        print colored("Select Option:'D'  To Get the recent post of a user by username\n",'green')
-        print colored("Select Option:'E'  To Get a list of people who have liked the recent post of a user\n",'green')
-        print colored("Select Option:'F'  To Like the recent post of a user\n",'green')
-        print colored("Select Option:'G'  To Get a list of comments on the recent post of a user\n",'green')
-        print colored("Select Option:'H'  To Make a comment on the recent post of a user\n",'green')
-        print colored("Select Option:'I'  To Delete negative comments from the recent post of a user\n",'green')
-        print colored("Select Option:'J'  To Exit From The Application..",'red')
+        print colored("Select Option:'A' : To Get your own details\n",'green')
+        print colored("Select Option:'B' : To Get details of a user by username\n",'green')
+        print colored("Select Option:'C' : To Get your own recent post\n",'green')
+        print colored("Select Option:'D' : To Get the recent post of a user by username\n",'green')
+        print colored("Select Option:'E' : To Get a list of people who have liked the recent post of a user\n",'green')
+        print colored("Select Option:'F' : To Like the recent post of a user\n",'green')
+        print colored("Select Option:'G' : To Get a list of people who commented on the recent post of a user\n",'green')
+        print colored("Select Option:'H' : To Make a comment on the recent post of a user\n",'green')
+        print colored("Select Option:'I' : To Delete negative comments from the recent post of a user\n",'green')
+        print colored("Select Option:'J' : To Exit From The Application..",'red')
 
         choice = raw_input(colored("Enter you choice: ",'blue'))
         if choice.upper() == "A":
