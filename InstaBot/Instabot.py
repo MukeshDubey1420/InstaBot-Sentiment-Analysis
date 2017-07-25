@@ -3,7 +3,7 @@ from termcolor import colored
 from textblob import TextBlob
 from textblob.sentiments import NaiveBayesAnalyzer
 
-APP_ACCESS_TOKEN = '2949992764.95c80d8.47897e91a7f547e592decfde42b7cf94'  # Access_Token Owner : im_mukeshdubey....
+APP_ACCESS_TOKEN = "*************************************"  # Access_Token Owner : im_mukeshdubey....   Generate your acess token by urself to play with code ..
 BASE_URL = 'https://api.instagram.com/v1/'
 #SandboxUsers =  {"username1" : "simranbindal38" ,"username2" : "rosetaylor1232" ,"username3" : "im_nikkimikki" }
 
