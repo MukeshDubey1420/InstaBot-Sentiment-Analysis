@@ -3,19 +3,14 @@ from termcolor import colored
 from textblob import TextBlob
 from textblob.sentiments import NaiveBayesAnalyzer
 
-APP_ACCESS_TOKEN = "*************************************"  # Access_Token Owner : im_mukeshdubey....   Generate your acess token by urself to play with code ..
+APP_ACCESS_TOKEN = "*************************************"  # Access_Token: Generate your acess token by urself..
 BASE_URL = 'https://api.instagram.com/v1/'
-#SandboxUsers =  {"username1" : "simranbindal38" ,"username2" : "rosetaylor1232" ,"username3" : "im_nikkimikki" }
 
 #                           Function declaration to get your own info ........
-
-
-
 def self_info():                 # defining Function to ascess users information...
     request_url = (BASE_URL + 'users/self/?access_token=%s') % (APP_ACCESS_TOKEN)
     print colored('GET request url : %s\n','blue') % (request_url)
     user_info = requests.get(request_url).json()
-
     if user_info['meta']['code'] == 200:
         if len(user_info['data']):
             print colored('Username: %s\n','blue') % (user_info['data']['username'])
@@ -26,8 +21,6 @@ def self_info():                 # defining Function to ascess users information
             print colored('User does not exist!!\n','red')
     else:
         print colored('Status code other than 200 received!\n','red')
-
-
 
 #    Function declaration to get the ID of a user by username
 
@@ -46,12 +39,7 @@ def get_user_id(insta_username):                  # Defining function to get Use
         print colored('Status code other than 200 received!\n','red')
         exit()
 
-
-
 #                Function declaration to get the info of a user by username.............................
-
-
-
 
 def get_user_info(insta_username):            #     Defining function to Get user information by passing username ...
     user_id = get_user_id(insta_username)     #     Calling Function of get user_Id  to further proceed..
@@ -73,11 +61,7 @@ def get_user_info(insta_username):            #     Defining function to Get use
     else:
         print colored('Status code other than 200 received!\n','red')
 
-
-
 #                       Function declaration to get your recent post...................
-
-
 
 def get_own_post():
     request_url = (BASE_URL + 'users/self/media/recent/?access_token=%s') % (APP_ACCESS_TOKEN)
@@ -95,11 +79,7 @@ def get_own_post():
     else:
         print colored('Status code other than 200 received!\n','red')
 
-
-
 #                    Function declaration to get the recent post of a user by username.................
-
-
 
 def get_user_post(insta_username):   # Defining function to get recent posts of a user by passing username to function..
     user_id = get_user_id(insta_username)    # Calling get user id function to get user id by passing username ..
@@ -124,7 +104,6 @@ def get_user_post(insta_username):   # Defining function to get recent posts of 
 
 #                 Function declaration to get the ID of the recent post of a user by username........
 
-
 def get_post_id(insta_username):
     user_id = get_user_id(insta_username)               #         Capturing the user id ......
     if user_id == None:                                 #         checking in case post exists or not .......
@@ -143,12 +122,7 @@ def get_post_id(insta_username):
     else:
         print colored('Status code other than 200 received!\n','red')
         exit()
-
-
-
 #                        Function declaration to like the recent post of a user.........
-
-
 
 def like_a_post(insta_username):                              #     Defining the Function ............
     media_id = get_post_id(insta_username)                     # Getting post id by passing the username .......
@@ -164,7 +138,6 @@ def like_a_post(insta_username):                              #     Defining the
 
 
 #                 Function declaration to Get the like lists on the recent post of a user.........
-
 
 def get_like_list(insta_username):            # Defining the Function ............
     media_id = get_post_id(insta_username)  # Getting post id by passing the username .......
@@ -187,9 +160,7 @@ def get_like_list(insta_username):            # Defining the Function ..........
     else:
         print colored('Status code other than 200 recieved.\n', 'red')
 
-
 #        Function declaration to Get the lists of comments on  the recent post of a user.........
-
 
 def get_comment_list(insta_username):  # Defining the Function ............
     media_id = get_post_id(insta_username)  # Getting post id by passing the username .......
@@ -212,9 +183,7 @@ def get_comment_list(insta_username):  # Defining the Function ............
     else:
         print colored('Status code other than 200 recieved.\n', 'red')
 
-
 #                  Function declaration to make a comment on the recent post of the user................
-
 
 def post_a_comment(insta_username):         #     Defining the function ......
     media_id = get_post_id(insta_username)    #   Getting media id by calling the get post id function....
@@ -231,7 +200,6 @@ def post_a_comment(insta_username):         #     Defining the function ......
 
 
 #                      Function declaration to make delete negative comments from the recent post.........................
-
 
 def delete_negative_comment(insta_username):   #     Defining the function ......
     media_id = get_post_id(insta_username)     #   Getting media id by calling the get post id function....
@@ -264,9 +232,7 @@ def delete_negative_comment(insta_username):   #     Defining the function .....
     else:
         print colored('Status code other than 200 received!\n','red')
 
-
 #                   Defining the Main function under which above sub-function works by calling ...........
-
 
 def start_bot():
     while True:
